@@ -18,7 +18,7 @@ const { ROBOT_API_KEY, ARCA_CUIT, ARCA_CLAVE, PORT = 10000 } = process.env;
 
 let ocupado = false;
 
-app.get('/', (_req, res) => res.json({ ok: true, ocupado }));
+app.get('/', (_req, res) => res.json({ ok: true, ocupado, version: 'v2-modales' }));
 
 app.post('/cargar', upload.single('txt'), async (req, res) => {
   if (req.get('X-Api-Key') !== ROBOT_API_KEY) return res.status(401).json({ estado: 'ERROR', detalle: 'API key invalida' });
